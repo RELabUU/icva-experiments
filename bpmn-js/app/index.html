@@ -1,0 +1,109 @@
+<html>
+<head>
+  <title>bpmn-js modeler demo</title>
+
+  <!--diagram.js is referenced here, because it has the styles for the palette-->
+  <link rel="stylesheet" href="css/diagram-js.css" />
+  <link rel="stylesheet" href="vendor/bpmn-font/css/bpmn-embedded.css" />
+  <link rel="stylesheet" href="css/app.css" />
+
+  <style>
+  .highlight:not(.djs-connection) .djs-visual > :nth-child(1) {
+    fill: green !important; /* color elements as green */
+  }
+  </style>
+
+</head>
+<body>
+  <div class="content" id="js-drop-zone">
+
+    <div class="message intro">
+      <div class="note">
+        Drop BPMN diagram from your desktop or <a id="js-create-diagram" href>create a new diagram</a> to get started.
+      </div>
+    </div>
+
+    <div class="message error">
+      <div class="note">
+        <p>Ooops, we could not display the BPMN 2.0 diagram.</p>
+
+        <div class="details">
+          <span>cause of the problem</span>
+          <pre></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="canvas" id="js-canvas">
+        <div class="input">
+          <div class="console">
+            <h3>Console</h3>
+            <textarea id="js-console"></textarea>
+          </div>
+
+          <div class="suggestions">
+            <h2>
+              Suggestions
+            </h2>
+            <!--<p id="suggestionList">
+              Suggestions will be displayed here
+            </p>-->
+            <table id="suggestionList">
+                <thead>
+                <tr class="tableHead">
+                    <th>Suggestion</th>
+                    <th>Usefulness</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <button id="giveSuggestions">Give suggestions</button>
+          </div>
+
+          <hr />
+          <button id="suggestions">Give me suggestions</button>
+          <button id="logging">Log to console</button>
+          <button id="downloadjson">json</button>
+          <button id="colorElement">color</button>
+          <button id="parseSuggestions">Parse suggestions</button>
+          <button id="postCommit">POST commit</button>
+        </div>
+    </div>
+  </div>
+
+  <ul class="buttons">
+    <li>
+      download
+    </li>
+    <li>
+      <a id="js-download-diagram" href title="download BPMN diagram">
+        BPMN diagram
+      </a>
+    </li>
+    <li>
+      <a id="js-download-svg" href title="download as SVG image">
+        SVG image
+      </a>
+    </li>
+  </ul>
+
+  <script src="index.js"></script>
+
+  <script>
+    var suggestions = document.getElementById('suggestions');
+    var logging = document.getElementById('logging');
+
+    suggestions.onclick = function(){
+      //cli.model('StartEvent_1 -> and -> service -> user -> icatch -> xor -> or -> ithrow -> end');
+      //cli.model('StartEvent_0y3b0cm -> and');
+
+      cli.setLabel('StartEvent_0y3b0cm', 'huh');
+    }
+
+    logging.onclick = function() {
+      cli.save('bpmn');
+    }
+  </script>
+
+</html>

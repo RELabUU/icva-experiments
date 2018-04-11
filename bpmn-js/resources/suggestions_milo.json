@@ -1,0 +1,18 @@
+{
+   "user": {
+			"id": "23",
+			"name": "Expert 01",
+			"role": "EXPERT"
+		},
+
+    "suggestions": [
+    {
+      "suggestionid": "5",
+      "suggestionName": "cruise"
+    },
+    {
+        "suggestionid": "7",
+        "suggestionName": "flight"
+    }
+  ]
+}
