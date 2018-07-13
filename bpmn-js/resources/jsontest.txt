@@ -1,0 +1,1601 @@
+{
+    "declaration": {
+        "attributes": {
+            "version": "1.0",
+            "encoding": "UTF-8"
+        }
+    },
+    "elements": [
+        {
+            "elements": [
+                {
+                    "elements": [
+                        {
+                            "type": "element",
+                            "name": "bpmn2:participant",
+                            "attributes": {
+                                "id": "Participant_0zhqjrf",
+                                "name": "Customer",
+                                "processRef": "Process_1"
+                            }
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:participant",
+                            "attributes": {
+                                "id": "Participant_11emln3",
+                                "name": "Pizza company",
+                                "processRef": "Process_0ju4vcc"
+                            }
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:messageFlow",
+                            "attributes": {
+                                "id": "MessageFlow_0qwqxtg",
+                                "sourceRef": "Task_1vac0sn",
+                                "targetRef": "IntermediateThrowEvent_1pvpkg3"
+                            }
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:messageFlow",
+                            "attributes": {
+                                "id": "MessageFlow_1nhoasd",
+                                "sourceRef": "Task_04p9rgc",
+                                "targetRef": "Task_0ks7lrf"
+                            }
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:messageFlow",
+                            "attributes": {
+                                "id": "MessageFlow_03uk37j",
+                                "sourceRef": "Task_0ks7lrf",
+                                "targetRef": "Task_04p9rgc"
+                            }
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:messageFlow",
+                            "attributes": {
+                                "id": "MessageFlow_141u3ce",
+                                "sourceRef": "Task_056vtmk",
+                                "targetRef": "IntermediateCatchEvent_0fsmcai"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "element",
+                    "name": "bpmn2:process",
+                    "attributes": {
+                        "id": "Process_1",
+                        "isExecutable": "false"
+                    },
+                    "elements": [
+                        {
+                            "type": "element",
+                            "name": "bpmn2:startEvent",
+                            "attributes": {
+                                "id": "StartEvent_0y3b0cm",
+                                "name": "Hungry"
+                            },
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:outgoing",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "SequenceFlow_1xyktz1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:task",
+                            "attributes": {
+                                "id": "Task_03b5wyp",
+                                "name": "Choose pizza"
+                            },
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:incoming",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "SequenceFlow_1xyktz1"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:outgoing",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "SequenceFlow_05diqmv"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:task",
+                            "attributes": {
+                                "id": "Task_1vac0sn",
+                                "name": "Order pizza"
+                            },
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:incoming",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "SequenceFlow_05diqmv"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:sequenceFlow",
+                            "attributes": {
+                                "id": "SequenceFlow_1xyktz1",
+                                "sourceRef": "StartEvent_0y3b0cm",
+                                "targetRef": "Task_03b5wyp"
+                            }
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:sequenceFlow",
+                            "attributes": {
+                                "id": "SequenceFlow_05diqmv",
+                                "sourceRef": "Task_03b5wyp",
+                                "targetRef": "Task_1vac0sn"
+                            }
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:sequenceFlow",
+                            "attributes": {
+                                "id": "SequenceFlow_1u84p9b",
+                                "sourceRef": "IntermediateCatchEvent_0fsmcai",
+                                "targetRef": "Task_04p9rgc"
+                            }
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:intermediateCatchEvent",
+                            "attributes": {
+                                "id": "IntermediateCatchEvent_0fsmcai",
+                                "name": "Pizza delivered"
+                            },
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:outgoing",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "SequenceFlow_1u84p9b"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:messageEventDefinition"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:task",
+                            "attributes": {
+                                "id": "Task_04p9rgc",
+                                "name": "Pay for pizza"
+                            },
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:incoming",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "SequenceFlow_1u84p9b"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:outgoing",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "SequenceFlow_15io17b"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:task",
+                            "attributes": {
+                                "id": "Task_1q55stv",
+                                "name": "Eat pizza"
+                            },
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:incoming",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "SequenceFlow_15io17b"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:outgoing",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "SequenceFlow_1eobb4v"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:sequenceFlow",
+                            "attributes": {
+                                "id": "SequenceFlow_15io17b",
+                                "sourceRef": "Task_04p9rgc",
+                                "targetRef": "Task_1q55stv"
+                            }
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:endEvent",
+                            "attributes": {
+                                "id": "EndEvent_173bhav",
+                                "name": "Not hungry anymore"
+                            },
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:incoming",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "SequenceFlow_1eobb4v"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:sequenceFlow",
+                            "attributes": {
+                                "id": "SequenceFlow_1eobb4v",
+                                "sourceRef": "Task_1q55stv",
+                                "targetRef": "EndEvent_173bhav"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "element",
+                    "name": "bpmn2:process",
+                    "attributes": {
+                        "id": "Process_0ju4vcc"
+                    },
+                    "elements": [
+                        {
+                            "type": "element",
+                            "name": "bpmn2:laneSet",
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:lane",
+                                    "attributes": {
+                                        "id": "Lane_1h3tml1",
+                                        "name": "Baker"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "bpmn2:flowNodeRef",
+                                            "elements": [
+                                                {
+                                                    "type": "text",
+                                                    "text": "IntermediateThrowEvent_1pvpkg3"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmn2:flowNodeRef",
+                                            "elements": [
+                                                {
+                                                    "type": "text",
+                                                    "text": "Task_186kmp7"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:lane",
+                                    "attributes": {
+                                        "id": "Lane_09vd1gz",
+                                        "name": "Delivery boy"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "bpmn2:flowNodeRef",
+                                            "elements": [
+                                                {
+                                                    "type": "text",
+                                                    "text": "Task_056vtmk"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmn2:flowNodeRef",
+                                            "elements": [
+                                                {
+                                                    "type": "text",
+                                                    "text": "Task_0ks7lrf"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmn2:flowNodeRef",
+                                            "elements": [
+                                                {
+                                                    "type": "text",
+                                                    "text": "EndEvent_1et3dfy"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:intermediateCatchEvent",
+                            "attributes": {
+                                "id": "IntermediateThrowEvent_1pvpkg3",
+                                "name": "Order received"
+                            },
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:outgoing",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "SequenceFlow_09mtl8w"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:messageEventDefinition"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:task",
+                            "attributes": {
+                                "id": "Task_186kmp7",
+                                "name": "Bake pizza"
+                            },
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:incoming",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "SequenceFlow_09mtl8w"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:outgoing",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "SequenceFlow_02amkj7"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:sequenceFlow",
+                            "attributes": {
+                                "id": "SequenceFlow_02amkj7",
+                                "sourceRef": "Task_186kmp7",
+                                "targetRef": "Task_056vtmk"
+                            }
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:sequenceFlow",
+                            "attributes": {
+                                "id": "SequenceFlow_09mtl8w",
+                                "sourceRef": "IntermediateThrowEvent_1pvpkg3",
+                                "targetRef": "Task_186kmp7"
+                            }
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:task",
+                            "attributes": {
+                                "id": "Task_056vtmk",
+                                "name": "Deliver pizza"
+                            },
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:incoming",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "SequenceFlow_02amkj7"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:outgoing",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "SequenceFlow_11dks4j"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:task",
+                            "attributes": {
+                                "id": "Task_0ks7lrf",
+                                "name": "Handle payment"
+                            },
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:incoming",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "SequenceFlow_11dks4j"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:outgoing",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "SequenceFlow_1yv5x85"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:sequenceFlow",
+                            "attributes": {
+                                "id": "SequenceFlow_11dks4j",
+                                "sourceRef": "Task_056vtmk",
+                                "targetRef": "Task_0ks7lrf"
+                            }
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:endEvent",
+                            "attributes": {
+                                "id": "EndEvent_1et3dfy",
+                                "name": "Order handled"
+                            },
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "bpmn2:incoming",
+                                    "elements": [
+                                        {
+                                            "type": "text",
+                                            "text": "SequenceFlow_1yv5x85"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "element",
+                            "name": "bpmn2:sequenceFlow",
+                            "attributes": {
+                                "id": "SequenceFlow_1yv5x85",
+                                "sourceRef": "Task_0ks7lrf",
+                                "targetRef": "EndEvent_1et3dfy"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "element",
+                    "name": "bpmndi:BPMNDiagram",
+                    "attributes": {
+                        "id": "BPMNDiagram_1"
+                    },
+                    "elements": [
+                        {
+                            "type": "element",
+                            "name": "bpmndi:BPMNPlane",
+                            "attributes": {
+                                "id": "BPMNPlane_1",
+                                "bpmnElement": "Collaboration_1xdq5g5"
+                            },
+                            "elements": [
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNShape",
+                                    "attributes": {
+                                        "id": "Participant_0zhqjrf_di",
+                                        "bpmnElement": "Participant_0zhqjrf"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "dc:Bounds",
+                                            "attributes": {
+                                                "x": "16",
+                                                "y": "-19",
+                                                "width": "945",
+                                                "height": "196"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNShape",
+                                    "attributes": {
+                                        "id": "StartEvent_0y3b0cm_di",
+                                        "bpmnElement": "StartEvent_0y3b0cm"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "dc:Bounds",
+                                            "attributes": {
+                                                "x": "87.73054587688733",
+                                                "y": "51.8664343786295",
+                                                "width": "36",
+                                                "height": "36"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmndi:BPMNLabel",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "dc:Bounds",
+                                                    "attributes": {
+                                                        "x": "88",
+                                                        "y": "91",
+                                                        "width": "36",
+                                                        "height": "13"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNShape",
+                                    "attributes": {
+                                        "id": "Task_03b5wyp_di",
+                                        "bpmnElement": "Task_03b5wyp"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "dc:Bounds",
+                                            "attributes": {
+                                                "x": "170.73054587688733",
+                                                "y": "30",
+                                                "width": "100",
+                                                "height": "80"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNShape",
+                                    "attributes": {
+                                        "id": "Task_1vac0sn_di",
+                                        "bpmnElement": "Task_1vac0sn"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "dc:Bounds",
+                                            "attributes": {
+                                                "x": "305.73054587688733",
+                                                "y": "30",
+                                                "width": "100",
+                                                "height": "80"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNEdge",
+                                    "attributes": {
+                                        "id": "SequenceFlow_1xyktz1_di",
+                                        "bpmnElement": "SequenceFlow_1xyktz1"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "124",
+                                                "y": "70"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "171",
+                                                "y": "70"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmndi:BPMNLabel",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "dc:Bounds",
+                                                    "attributes": {
+                                                        "x": "147.5",
+                                                        "y": "48",
+                                                        "width": "0",
+                                                        "height": "13"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNEdge",
+                                    "attributes": {
+                                        "id": "SequenceFlow_05diqmv_di",
+                                        "bpmnElement": "SequenceFlow_05diqmv"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "271",
+                                                "y": "70"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "306",
+                                                "y": "70"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmndi:BPMNLabel",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "dc:Bounds",
+                                                    "attributes": {
+                                                        "x": "288.5",
+                                                        "y": "48",
+                                                        "width": "0",
+                                                        "height": "13"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNShape",
+                                    "attributes": {
+                                        "id": "Participant_11emln3_di",
+                                        "bpmnElement": "Participant_11emln3"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "dc:Bounds",
+                                            "attributes": {
+                                                "x": "16",
+                                                "y": "246",
+                                                "width": "947",
+                                                "height": "276"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNShape",
+                                    "attributes": {
+                                        "id": "Lane_1h3tml1_di",
+                                        "bpmnElement": "Lane_1h3tml1"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "dc:Bounds",
+                                            "attributes": {
+                                                "x": "46",
+                                                "y": "246",
+                                                "width": "917",
+                                                "height": "137"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNShape",
+                                    "attributes": {
+                                        "id": "Lane_09vd1gz_di",
+                                        "bpmnElement": "Lane_09vd1gz"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "dc:Bounds",
+                                            "attributes": {
+                                                "x": "46",
+                                                "y": "383",
+                                                "width": "917",
+                                                "height": "139"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNShape",
+                                    "attributes": {
+                                        "id": "IntermediateCatchEvent_0gq2glo_di",
+                                        "bpmnElement": "IntermediateThrowEvent_1pvpkg3"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "dc:Bounds",
+                                            "attributes": {
+                                                "x": "110",
+                                                "y": "300",
+                                                "width": "36",
+                                                "height": "36"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmndi:BPMNLabel",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "dc:Bounds",
+                                                    "attributes": {
+                                                        "x": "91",
+                                                        "y": "339",
+                                                        "width": "73",
+                                                        "height": "13"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNEdge",
+                                    "attributes": {
+                                        "id": "MessageFlow_0qwqxtg_di",
+                                        "bpmnElement": "MessageFlow_0qwqxtg"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "319",
+                                                "y": "110"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "318.73054587688733",
+                                                "y": "205"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "123.73054587688733",
+                                                "y": "205"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "124",
+                                                "y": "301"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmndi:BPMNLabel",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "dc:Bounds",
+                                                    "attributes": {
+                                                        "x": "221.23054587688733",
+                                                        "y": "183",
+                                                        "width": "0",
+                                                        "height": "13"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNShape",
+                                    "attributes": {
+                                        "id": "Task_186kmp7_di",
+                                        "bpmnElement": "Task_186kmp7"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "dc:Bounds",
+                                            "attributes": {
+                                                "x": "212.73054587688733",
+                                                "y": "278",
+                                                "width": "100",
+                                                "height": "80"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNShape",
+                                    "attributes": {
+                                        "id": "Task_056vtmk_di",
+                                        "bpmnElement": "Task_056vtmk"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "dc:Bounds",
+                                            "attributes": {
+                                                "x": "323",
+                                                "y": "421.8664343786295",
+                                                "width": "100",
+                                                "height": "80"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNEdge",
+                                    "attributes": {
+                                        "id": "SequenceFlow_02amkj7_di",
+                                        "bpmnElement": "SequenceFlow_02amkj7"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "263",
+                                                "y": "358"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "263",
+                                                "y": "390"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "373",
+                                                "y": "390"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "373",
+                                                "y": "422"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmndi:BPMNLabel",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "dc:Bounds",
+                                                    "attributes": {
+                                                        "x": "318",
+                                                        "y": "368.5",
+                                                        "width": "0",
+                                                        "height": "13"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNEdge",
+                                    "attributes": {
+                                        "id": "SequenceFlow_09mtl8w_di",
+                                        "bpmnElement": "SequenceFlow_09mtl8w"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "146",
+                                                "y": "318"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "213",
+                                                "y": "318"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmndi:BPMNLabel",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "dc:Bounds",
+                                                    "attributes": {
+                                                        "x": "179.5",
+                                                        "y": "296",
+                                                        "width": "0",
+                                                        "height": "13"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNShape",
+                                    "attributes": {
+                                        "id": "Task_04p9rgc_di",
+                                        "bpmnElement": "Task_04p9rgc"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "dc:Bounds",
+                                            "attributes": {
+                                                "x": "560.3751451800232",
+                                                "y": "30",
+                                                "width": "100",
+                                                "height": "80"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNShape",
+                                    "attributes": {
+                                        "id": "Task_0ks7lrf_di",
+                                        "bpmnElement": "Task_0ks7lrf"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "dc:Bounds",
+                                            "attributes": {
+                                                "x": "560.3751451800232",
+                                                "y": "422",
+                                                "width": "100",
+                                                "height": "80"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNEdge",
+                                    "attributes": {
+                                        "id": "MessageFlow_1nhoasd_di",
+                                        "bpmnElement": "MessageFlow_1nhoasd"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "613",
+                                                "y": "110"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "613",
+                                                "y": "266"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "595.3751451800232",
+                                                "y": "266"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "595",
+                                                "y": "422"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmndi:BPMNLabel",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "dc:Bounds",
+                                                    "attributes": {
+                                                        "x": "604.1875725900115",
+                                                        "y": "244.5",
+                                                        "width": "0",
+                                                        "height": "13"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNEdge",
+                                    "attributes": {
+                                        "id": "MessageFlow_03uk37j_di",
+                                        "bpmnElement": "MessageFlow_03uk37j"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "620",
+                                                "y": "422"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "620.3751451800232",
+                                                "y": "266"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "630",
+                                                "y": "266"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "630",
+                                                "y": "110"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmndi:BPMNLabel",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "dc:Bounds",
+                                                    "attributes": {
+                                                        "x": "625.1875725900115",
+                                                        "y": "244.5",
+                                                        "width": "0",
+                                                        "height": "13"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNEdge",
+                                    "attributes": {
+                                        "id": "SequenceFlow_11dks4j_di",
+                                        "bpmnElement": "SequenceFlow_11dks4j"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "423",
+                                                "y": "462"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "560",
+                                                "y": "462"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmndi:BPMNLabel",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "dc:Bounds",
+                                                    "attributes": {
+                                                        "x": "491.5",
+                                                        "y": "440",
+                                                        "width": "0",
+                                                        "height": "13"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNShape",
+                                    "attributes": {
+                                        "id": "EndEvent_1et3dfy_di",
+                                        "bpmnElement": "EndEvent_1et3dfy"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "dc:Bounds",
+                                            "attributes": {
+                                                "x": "772.3751451800232",
+                                                "y": "444",
+                                                "width": "36",
+                                                "height": "36"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmndi:BPMNLabel",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "dc:Bounds",
+                                                    "attributes": {
+                                                        "x": "755",
+                                                        "y": "483",
+                                                        "width": "71",
+                                                        "height": "13"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNEdge",
+                                    "attributes": {
+                                        "id": "SequenceFlow_1yv5x85_di",
+                                        "bpmnElement": "SequenceFlow_1yv5x85"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "660",
+                                                "y": "462"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "773",
+                                                "y": "462"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmndi:BPMNLabel",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "dc:Bounds",
+                                                    "attributes": {
+                                                        "x": "716.5",
+                                                        "y": "440",
+                                                        "width": "0",
+                                                        "height": "13"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNShape",
+                                    "attributes": {
+                                        "id": "IntermediateCatchEvent_0fsmcai_di",
+                                        "bpmnElement": "IntermediateCatchEvent_0fsmcai"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "dc:Bounds",
+                                            "attributes": {
+                                                "x": "464",
+                                                "y": "52",
+                                                "width": "36",
+                                                "height": "36"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmndi:BPMNLabel",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "dc:Bounds",
+                                                    "attributes": {
+                                                        "x": "444",
+                                                        "y": "28.5",
+                                                        "width": "75",
+                                                        "height": "13"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNEdge",
+                                    "attributes": {
+                                        "id": "MessageFlow_141u3ce_di",
+                                        "bpmnElement": "MessageFlow_141u3ce"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "389",
+                                                "y": "422"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "388.5005807200929",
+                                                "y": "255"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "480",
+                                                "y": "255"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "480",
+                                                "y": "88"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmndi:BPMNLabel",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "dc:Bounds",
+                                                    "attributes": {
+                                                        "x": "434.25029036004645",
+                                                        "y": "233.5",
+                                                        "width": "0",
+                                                        "height": "13"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNEdge",
+                                    "attributes": {
+                                        "id": "SequenceFlow_1u84p9b_di",
+                                        "bpmnElement": "SequenceFlow_1u84p9b"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "500",
+                                                "y": "70"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "560",
+                                                "y": "70"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmndi:BPMNLabel",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "dc:Bounds",
+                                                    "attributes": {
+                                                        "x": "530",
+                                                        "y": "48.5",
+                                                        "width": "0",
+                                                        "height": "13"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNShape",
+                                    "attributes": {
+                                        "id": "Task_1q55stv_di",
+                                        "bpmnElement": "Task_1q55stv"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "dc:Bounds",
+                                            "attributes": {
+                                                "x": "698.5005807200929",
+                                                "y": "30",
+                                                "width": "100",
+                                                "height": "80"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNEdge",
+                                    "attributes": {
+                                        "id": "SequenceFlow_15io17b_di",
+                                        "bpmnElement": "SequenceFlow_15io17b"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "660",
+                                                "y": "70"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "699",
+                                                "y": "70"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmndi:BPMNLabel",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "dc:Bounds",
+                                                    "attributes": {
+                                                        "x": "679.5",
+                                                        "y": "48",
+                                                        "width": "0",
+                                                        "height": "13"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNShape",
+                                    "attributes": {
+                                        "id": "EndEvent_173bhav_di",
+                                        "bpmnElement": "EndEvent_173bhav"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "dc:Bounds",
+                                            "attributes": {
+                                                "x": "855.5005807200929",
+                                                "y": "52",
+                                                "width": "36",
+                                                "height": "36"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmndi:BPMNLabel",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "dc:Bounds",
+                                                    "attributes": {
+                                                        "x": "847",
+                                                        "y": "91",
+                                                        "width": "54",
+                                                        "height": "25"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "element",
+                                    "name": "bpmndi:BPMNEdge",
+                                    "attributes": {
+                                        "id": "SequenceFlow_1eobb4v_di",
+                                        "bpmnElement": "SequenceFlow_1eobb4v"
+                                    },
+                                    "elements": [
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "799",
+                                                "y": "70"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "di:waypoint",
+                                            "attributes": {
+                                                "x": "856",
+                                                "y": "70"
+                                            }
+                                        },
+                                        {
+                                            "type": "element",
+                                            "name": "bpmndi:BPMNLabel",
+                                            "elements": [
+                                                {
+                                                    "type": "element",
+                                                    "name": "dc:Bounds",
+                                                    "attributes": {
+                                                        "x": "827.5",
+                                                        "y": "48",
+                                                        "width": "0",
+                                                        "height": "13"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

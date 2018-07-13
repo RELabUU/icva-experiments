@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="vendor/bpmn-font/css/bpmn-embedded.css" />
   <link rel="stylesheet" href="css/app.css" />
 
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+
   <style>
   .highlight:not(.djs-connection) .djs-visual > :nth-child(1) {
     fill: green !important; /* color elements as green */
@@ -36,38 +39,67 @@
 
     <div class="canvas" id="js-canvas">
         <div class="input">
-          <div class="console">
+          <!--<div class="console">
             <h3>Console</h3>
             <textarea id="js-console"></textarea>
+          </div>-->
+
+          <div class="experimentInfo">
+            <p><i>To be filled in by observer:</i></p>
+            <input id="experimentNumber" value="Experiment Number"></input>
+            <button class="stdButton" id="numberOk">Ok</button>
           </div>
+          <hr  />
 
           <div class="suggestions">
-            <h2>
+            <h2 id="suggTitle">
               Suggestions
             </h2>
-            <!--<p id="suggestionList">
-              Suggestions will be displayed here
-            </p>-->
-            <table id="suggestionList">
+            <div id="suggestionDiv">
+              <table id="suggestionList">
                 <thead>
                 <tr class="tableHead">
-                    <th>Suggestion</th>
-                    <th>Usefulness</th>
+                    <th id="tableSuggestion">Suggestion</th>
+                    <th id="tableUseful">Useful?</th>
                 </tr>
                 </thead>
                 <tbody>
                 </tbody>
-            </table>
-            <button id="giveSuggestions">Give suggestions</button>
+              </table>
+            </div>
+
+            <button class="stdButton" id="giveSuggestions">Give suggestions</button>
+            <button class="stdButton" id="pastSuggestions">View past suggestions</button>
+
+            <div id="pastSuggDiv">
+              <table id="pastSuggestionList">
+                  <thead>
+                    <tr class="tableHead">
+                      <th id="tableSuggestion">Suggestion</th>
+                      <th id="pastFeedback">Rated</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="2">No suggestions have been rated yet.</td>
+                    </tr>
+                  </tbody>
+              </table>
+            </div>
           </div>
 
           <hr />
-          <button id="suggestions">Give me suggestions</button>
-          <button id="logging">Log to console</button>
-          <button id="downloadjson">json</button>
-          <button id="colorElement">color</button>
-          <button id="parseSuggestions">Parse suggestions</button>
-          <button id="postCommit">POST commit</button>
+
+          <div id="buttonDiv">
+            <!--<button id="suggestions">Give me suggestions</button>-->
+            <!--<button id="logging">Log model to console</button>-->
+            <button class="stdButton" id="downloadjson">Download JSON model</button>
+            <!--<button id="colorElement">color</button>-->
+            <!--<button id="parseSuggestions">Parse suggestions</button>-->
+            <button class="stdButton" id="postCommit">POST commit</button>
+            <!--<button id="startTracking">Start tracking modeling</button>-->
+            <button class="stdButton" id="simplifiedJSON">Simplify JSON</button>
+          </div>
         </div>
     </div>
   </div>
@@ -88,22 +120,16 @@
     </li>
   </ul>
 
-  <script src="index.js"></script>
+  <script type="text/javascript" src="index.js"></script>
 
   <script>
     var suggestions = document.getElementById('suggestions');
     var logging = document.getElementById('logging');
 
-    suggestions.onclick = function(){
-      //cli.model('StartEvent_1 -> and -> service -> user -> icatch -> xor -> or -> ithrow -> end');
-      //cli.model('StartEvent_0y3b0cm -> and');
-
-      cli.setLabel('StartEvent_0y3b0cm', 'huh');
-    }
-
+    /*
     logging.onclick = function() {
       cli.save('bpmn');
-    }
+    }*/
   </script>
-
+</body>
 </html>

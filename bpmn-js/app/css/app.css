@@ -5,9 +5,7 @@
 body, html {
 
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
   font-size: 12px;
-
   height: 100%;
   padding: 0;
   margin: 0;
@@ -46,9 +44,46 @@ a:link {
   margin-top: 10px;
 }
 
-#suggestionList > th, td {
-  border: 1px solid gray;
+#suggestionDiv, #pastSuggDiv {
+  margin-top: 20px;
+  width: 93%;
+  max-height: 300px;
+  overflow: scroll;
+  display: none;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #bdbdbd;
+  padding: 4px;
+}
+
+#pastSuggDiv {
+  margin-top: 20px;
+  width: 93%;
+  max-height: 150px;
+  overflow: scroll;
+  display: none;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #bdbdbd;
+  padding: 4px;
+}
+
+.experimentInfo {
+  margin-left: 10px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  width: 100%;
+}
+
+#suggestionList #pastSuggestionList > th, td {
+
   border-spacing: 0.5rem;
+}
+
+#tableSuggestion {
+  width: 35%;
 }
 
 .tableHead  {
@@ -58,6 +93,76 @@ a:link {
 #suggestionList {
   font-size: 12px;
   width: 95%;
+}
+
+#suggTitle {
+  display: none;
+}
+
+#pastSuggestionList {
+  font-size: 12px;
+  width: 95%;
+}
+
+#usefulBttn, #posFeedback {
+  background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 4px 2px;
+    cursor: pointer;
+    height: 40px;
+}
+
+#notUsefulBttn, #negFeedback {
+  background-color: #eb3944;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 4px 2px;
+    cursor: pointer;
+    height: 40px;
+}
+
+#negFeedback, #posFeedback {
+  cursor: default !important;
+}
+
+.stdButton {
+  border: none;
+  color: white;
+  background: #95c11f;
+  display: inline-block;
+  font-size: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+}
+
+#buttonDiv {
+  display: flex;
+  justify-content: space-around;
+}
+
+#downloadjson, #postCommit, #simplifiedJSON {
+  width: 28% !important;
+  margin: 20px 0px 30px 0px;
+  background: #bdbdbd !important;
+}
+
+#numberOk {
+  margin: 20px 0px 30px 0px;
+  background: #bdbdbd !important;
+  display: block;
 }
 
 .input > button {
